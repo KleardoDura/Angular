@@ -1,0 +1,5 @@
+ng new TestAngularNoSA --no-standalone
+run that to add  app.module.ts file in your angular project
+
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+ng generate component nav 
