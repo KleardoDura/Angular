@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
   data="Testojme";
+  source: string ="/assets/image.png";
+  check=true;
+  searchValue="";
+  update(eventData: any){
+    this.searchValue=eventData.target.value;
+  }
 }

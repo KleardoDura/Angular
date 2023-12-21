@@ -1,0 +1,13 @@
+<p>Product page</p>
+<div *ngFor="let product of [10,20,30], let i=index">
+    <p>{{i}}</p>
+    <p>{{product}}</p>
+</div>
+
+<div *ngFor="let p of products">
+    <p>Emri: {{p.name}} , Cmimi {{p.price}} .</p>
+</div>
+<div>NEW:</div>
+<div *ngFor="let d of data"> <!--Te dhena nga backu-->
+    <p>Emri: {{d.name}} , Sasia {{d.sasia}} .</p>
+</div>
