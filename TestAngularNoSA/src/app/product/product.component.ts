@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
 
 
   products=[
@@ -19,6 +19,16 @@ export class ProductComponent implements OnInit {
     }
   ];
 
+pName :string="";
+pPrice:string="";
+sendData(){
+  console.log(this.pName);
+  const p={
+    name:this.pName,
+    price:this.pPrice
+  }
+  this.addProduct(p);
+}
 
 //Marrim data nga backendi
 //Mos harro importin;
@@ -28,6 +38,7 @@ constructor(private http: HttpClient) {}
 
 ngOnInit(): void {
   this.getProducts();
+
 }
 
 async getProducts() {
@@ -47,4 +58,19 @@ async getProducts() {
     console.error(err);
   }
 }
+async addProduct(productData: any) {
+  try {
+    const res = await this.http.post<any>("http://localhost:8080/products", productData).toPromise();
+    if (res) {
+      console.log('Product added successfully:', res);
+    } else {
+      console.error('Response is undefined.');
+    }
+  } catch (err) {
+    console.error('Error adding product:', err);
+  }
+}
+
+
+
 }
